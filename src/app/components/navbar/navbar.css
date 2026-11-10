@@ -1,0 +1,74 @@
+#navbar{
+  background-color: var(--color-surface-a10);
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  img{
+    width: 65px;
+    height: 40px;
+  }
+
+  .navbar-toggler-icon{
+    color: var(--color-primary-a10);
+  }
+
+  .drawer{
+    background-color: rgba(20, 20, 20, 0.7);
+    backdrop-filter: blur(5px);
+  }
+
+  .nav-link{
+    color: var(--link-color);
+    text-decoration: none;
+    transition: color 0.3s;
+
+    &:hover {
+      color: var(--link-hover-color);
+      background-color: transparent;
+    }
+  }
+
+  ul{
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+
+    li{
+      a{
+        color: var(--link-color);
+        text-decoration: none;
+        transition: color 0.3s;
+
+        &:hover{
+          color: var(--link-hover-color);
+        }
+      }
+      .active{
+        background-color: transparent;
+        color: var(--link-hover-color);
+        text-decoration: underline;
+
+      }
+    }
+
+    #btn-signup{
+      background-color: transparent;
+      color: var(--cta-button-color);
+      border: var(--cta-button-border);
+      padding: 0.5rem 1rem;
+      transition: background-color 0.3s;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: normal;
+
+      &:hover{
+        background-color: var(--cta-button-hover-background);
+        color: var(--color-surface-a0);
+      }
+    }
+  }
+}

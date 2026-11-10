@@ -1,0 +1,17 @@
+footer{
+  background-color: var(--color-surface-a10);
+  ul{
+    list-style: none;
+    li{
+      text-align: center;
+    }
+  }
+  a{
+    text-decoration: none;
+    color: var(--color-primary-a10);
+
+    &:hover{
+      color: var(--color-accent-a10);
+    }
+  }
+}

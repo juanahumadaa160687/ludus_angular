@@ -1,0 +1,53 @@
+#hero{
+  background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)), url('../../../../public/img/board-game.webp') no-repeat center center;
+  background-size: cover;
+  min-height: 65dvh;
+  position: relative;
+
+  h1{
+    font-size: var(--font-size-hero);
+    font-weight: var(--font-weight-hero);
+    font-family: var(--font-family-hero), sans-serif;
+    margin: 0;
+  }
+
+  .cta-button{
+    background-color: var(--primary-button-background);
+    color: var(--primary-button-color);
+    border: var(--primary-button-border);
+    padding: 0.8rem 2.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border-radius: 10px;
+  }
+
+  .cta-button:hover{
+    background-color: var(--primary-button-hover-background);
+    color: var(--color-surface-a0);
+  }
+
+  p{
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-body);
+    font-family: var(--font-family-body), sans-serif;
+  }
+}
+
+.hero-content{
+  position: absolute;
+  left: 2%;
+  bottom: 5%;
+  width: 60%;
+
+  -webkit-animation: fade-in 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: fade-in 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

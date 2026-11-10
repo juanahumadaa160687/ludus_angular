@@ -1,1 +1,92 @@
-/* You can add global styles to this file, and also import other style files */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.2/font/bootstrap-icons.min.css");
+
+:root{
+  /** Colores para texto */
+  --color-light-a0: #ffffff;
+  --color-dark-a0: #000000;
+
+  /** Colores primarios del tema */
+  --color-primary-a10: #e0e0e0;
+  --color-primary-a20: #e3e3e3;
+
+  /** Color de acento del tema */
+  --color-accent-a10: #ff8f4b;
+  --color-accent-a20: #ffa978;
+
+  /** Colores de superficie del tema */
+  --color-surface-a0: #161616;
+  --color-surface-a10: #292929;
+
+  /** Colores de éxito */
+  --color-success-a0: #7dff95;
+
+  /** Colores de advertencia */
+  --color-warning-a0: #ffbc5e;
+
+  /** Colores de error */
+  --color-error-a0: #ff8080;
+
+  /** Colores de información */
+  --color-info-a0: #87d1ff;
+
+  /** Botones CTA */
+  --cta-button-background: rgba(254, 143, 75, 0.1);
+  --cta-button-color: #ff8f4b;
+  --cta-button-border: 1px solid #ff8f4b;
+
+  /** Botones CTA deshabilitados */
+  --cta-button-disabled-background: rgba(125, 125, 125, 0.1);
+  --cta-button-disabled-color: #FFF;
+  --cta-button-disabled-border: 1px solid #FFF;
+
+  /** Botones CTA hover */
+  --cta-button-hover-background: #ff8f4b;
+  --cta-button-hover-color: #222526;
+
+  /** Botones primarios */
+  --primary-button-background: rgba(224, 224, 224, 0.1);
+  --primary-button-color: #e0e0e0;
+  --primary-button-border: 1px solid #e0e0e0;
+
+  /** Botones primarios hover */
+  --primary-button-hover-background: #e0e0e0;
+  --primary-button-hover-color: #222526;
+
+  /** Links */
+  --link-color: #e0e0e0;
+
+  /** Links hover */
+  --link-hover-color: #ff8f4b;
+
+  /** Fuentes */
+  --font-size-hero: 48px;
+  --font-weight-hero: Bold;
+  --font-family-hero: 'Arial Black';
+
+  --font-weight-title: Bold;
+  --font-family-title: 'Arial Black';
+  --font-size-title: 32px;
+
+  --font-size-subtitle: 28px;
+  --font-weight-subtitle: Bold;
+  --font-family-subtitle: 'Arial';
+
+  --font-size-header: 20px;
+  --font-weight-header: Bold;
+  --font-family-header: 'Arial';
+
+  --font-family-body: 'Arial';
+  --font-weight-body: Regular;
+  --font-size-body: 16px;
+}
+
+body{
+  background-color: var(--color-surface-a0);
+  color: var(--color-primary-a10);
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
