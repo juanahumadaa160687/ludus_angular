@@ -17,10 +17,20 @@
                 <a class="nav-link" aria-current="page" href="/home">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">Tienda</a>
+                <button class="nav-link" type="button" data-bs-toggle="menu" aria-expanded="false" id="dropdownMenuButton">
+                  Tienda <i class="bi bi-caret-down-fill"></i>
+                </button>
+                <div class="menu">
+                  <a class="menu-item" href="/secciones/juegos-mesa">Juegos de Mesa</a>
+                  <a class="menu-item" href="/secciones/juegos-cartas">Juegos de Cartas</a>
+                  <a class="menu-item" href="/seccciones/juegos-rol">Juegos de Rol</a>
+                  <a class="menu-item" href="/secciones/accesorios">Accesorios</a>
+                  <hr class="menu-divider">
+                  <a class="menu-item" aria-current="page" href="/tienda">Ofertas</a>
+                </div>
               </li>
               <li class="nav-item" id="user-avatar">
-                <a href="#" class="nav-link">
+                <a href="/profile" class="nav-link">
                   <span class="avatar">
                     <img class="avatar-img" src="{{ user_avatar }}" alt="avatar del usuario" width="40" height="40" />
                   </span>
@@ -35,10 +45,10 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">Ingresar</a>
+                <a class="nav-link" aria-current="page" href="/sign-in">Ingresar</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" id="btn-signup" aria-current="page" href="#">Registrate</a>
+                <a class="nav-link cta-button" aria-current="page" href="/sign-up">Registrate</a>
               </li>
               <li class="nav-item">
               </li>

@@ -1,8 +1,10 @@
 #hero{
   background: linear-gradient(rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.7)), url('../../../../public/img/board-game.webp') no-repeat center center;
   background-size: cover;
-  min-height: 65dvh;
-  position: relative;
+  min-height: 60dvh;
+  padding: 60px;
+  display: grid;
+  place-items: center;
 
   h1{
     font-size: var(--font-size-hero);
@@ -11,43 +13,105 @@
     margin: 0;
   }
 
-  .cta-button{
-    background-color: var(--primary-button-background);
-    color: var(--primary-button-color);
-    border: var(--primary-button-border);
-    padding: 0.8rem 2.5rem;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    border-radius: 10px;
-  }
-
-  .cta-button:hover{
-    background-color: var(--primary-button-hover-background);
-    color: var(--color-surface-a0);
-  }
-
   p{
     font-size: var(--font-size-body);
     font-weight: var(--font-weight-body);
     font-family: var(--font-family-body), sans-serif;
+    width: 60%;
   }
 }
 
-.hero-content{
-  position: absolute;
-  left: 2%;
-  bottom: 5%;
-  width: 60%;
-
-  -webkit-animation: fade-in 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-  animation: fade-in 1.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-}
-@keyframes fade-in {
-  0% {
-    opacity: 0;
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  #hero {
+    min-height: 100dvh;
+    p {
+      width: 100%;
+    }
+    .cta-button{
+      width: 100%;
+    }
   }
-  100% {
-    opacity: 1;
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  #hero {
+    justify-items: center;
+    min-height: 100dvh;
+    p {
+      width: 100%;
+    }
+    #hero-buttons{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      .cta-button{
+        width: 40%;
+      }
+    }
+
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  #hero {
+    justify-items: center;
+    min-height: 100dvh;
+    p {
+      width: 100%;
+    }
+    #hero-buttons{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      .cta-button{
+        width: 40%;
+      }
+    }
+
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  #hero {
+    justify-items: center;
+    min-height: 100dvh;
+    p {
+      width: 60%;
+    }
+    #hero-buttons{
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      width: 100%;
+      .cta-button{
+        width: 20%;
+      }
+    }
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  #hero {
+    justify-items: center;
+    min-height: 100dvh;
+    p {
+      width: 60%;
+    }
+    #hero-buttons{
+      display: flex;
+      justify-content: start;
+      align-items: center;
+      width: 100%;
+      .cta-button{
+        width: 10%;
+      }
+    }
   }
 }

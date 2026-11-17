@@ -1,1 +1,72 @@
-<p>tienda works!</p>
+<router-outlet>
+
+
+  <div class="container-fluid" id="main-container">
+
+    <div class="container-fluid d-flex flex-column justify-content-center align-items-center md:align-items-start">
+      <h1 class="text-center md:text-start">Ludus Arcanus Store</h1>
+      <p class="text-center md:text-start">Bienvenido a nuestra tienda en línea, donde encontrarás una amplia variedad de juegos y accesorios para todos los gustos.</p>
+    </div>
+
+    <div class="container-fluid d-flex justify-content-center md:justify-content-end align-items-center">
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <button type="button" class="buttons-group btn-solid" onclick="window.location.href='#'">Juegos de Mesa</button>
+        <button type="button" class="buttons-group btn-solid" onclick="window.location.href='#'">Juegos de Cartas</button>
+        <button type="button" class="buttons-group btn-solid" onclick="window.location.href='#'">Juegos de Rol</button>
+        <button type="button" class="buttons-group btn-solid" onclick="window.location.href='#'">Accesorios</button>
+      </div>
+    </div>
+
+    <div class="container-fluid d-flex justify-content-center align-items-center m-0" id="carousel-container">
+      <div id="carouselExample" class="carousel carousel-overlay slide carousel-fade" data-bs-autoplay="true">
+        <div class="carousel-inner rounded-5">
+          <div class="carousel-item active">
+            <img src="img/banners/banner1.webp" class="d-block w-100" alt="banner1">
+          </div>
+          <div class="carousel-item">
+            <img src="img/banners/banner2.webp" class="d-block w-100" alt="banner2">
+          </div>
+          <div class="carousel-item">
+            <img src="img/banners/banner3.webp" class="d-block w-100" alt="banner3">
+          </div>
+        </div>
+        <div class="carousel-overlay-controls">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" aria-label="Slide 3"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid" id="products-container">
+      @for (producto of sale_products; track producto.guid){
+        <div class="card">
+          <img src="img/{{producto.category}}/{{producto.image}}" alt="{{producto.name}}" class="card-img-top">
+          <div class="card-body">
+            <div>
+              <p class="card-text text-end"><small>{{ producto.discount }}% de descuento</small></p>
+            </div>
+            <div>
+              <h6 class="">{{producto.name}}</h6>
+              <p class="card-text" id="description">{{ producto.description }}</p>
+              <p class="card-title text-end"><a href="/producto/{{ producto.guid }}" >Ver más</a></p>
+            </div>
+            <div class="footer">
+              <div>
+                <p class="card-title price">{{currency_format.format(producto.price - producto.price * producto.discount/100)}}</p>
+              </div>
+              <div class="d-flex justify-content-end">
+                <button class="buy-button"><i class="bi bi-cart"></i> Comprar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      } @empty {
+        <h5>No existen productos en oferta</h5>
+      }
+
+    </div>
+  </div>
+</router-outlet>
