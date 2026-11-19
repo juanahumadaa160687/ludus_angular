@@ -1,6 +1,5 @@
 #main-container{
   display: grid;
   grid-template-rows: auto 1fr auto;
-  gap: 48px;
   min-height: 100dvh;
 }

@@ -1,10 +1,11 @@
 import { Component, inject } from '@angular/core';
-import {Router, RouterOutlet} from '@angular/router';
+import {Router, RouterLink, RouterOutlet} from '@angular/router';
 import { users, products, regiones } from './data.js'
 
 @Component({
   imports: [
-    RouterOutlet
+    RouterOutlet,
+    RouterLink
   ],
   selector: 'app-home',
   styleUrl: './home.css',

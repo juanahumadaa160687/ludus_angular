@@ -1,0 +1,31 @@
+<router-outlet>
+  <div class="container-fluid" id="sign-in-container">
+    <div id="first-container">
+      <div class="d-flex justify-content-start align-items-center w-100" id="sign-in-header">
+        <h5 class="mb-0">Inicio de Sesión</h5>
+      </div>
+      <div class="d-flex justify-content-end align-items-center w-100">
+        <p>¿No tienes cuenta? <a href="/sign-up">Regístrate aquí</a></p>
+      </div>
+      <div class="container-fluid">
+        <form class="row g-5" action="" [formGroup]="signInForm" (ngSubmit)="onSubmit()">
+          <div class="col-12 mb-4">
+            <label for="username" class="form-label">Nombre de Usuario</label>
+            <input type="text" id="username" class="form-control" aria-describedby="username-validation" placeholder="Username" />
+          </div>
+          <div class="col-12 mb-4">
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" id="password" class="form-control" aria-describedby="password-validation" placeholder="Contraseña" />
+          </div>
+          <div class="d-flex justify-content-end align-items-center w-100">
+            <a href="#">¿Olvidaste tu contraseña?</a>
+          </div>
+          <div class="col-12" id="button-container">
+            <button type="submit" class="cta-button" id="submit-button">Iniciar Sesión</button>
+            <button type="reset" class="primary-button">Limpiar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</router-outlet>

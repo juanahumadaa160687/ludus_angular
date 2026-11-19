@@ -1,0 +1,107 @@
+<router-outlet>
+  <div class="container-fluid md:container my-9" id="sign-up-container">
+    <div class="container-fluid p-5 md:p-8" id="first-container">
+      <div class="container-fluid d-flex justify-content-start align-items-center">
+        <h5 class="text-center md:text-start">Registro de Usuario</h5>
+      </div>
+      <div class="container-fluid d-flex justify-content-center md:justify-content-end align-items-center">
+        <p>¿Ya tienes cuenta? <a href="/sign-in">Inicia Sesión</a></p>
+      </div>
+      <form class="row g-5" action="" id="sign-up-form" [formGroup]="signUpForm" (ngSubmit)="onSubmit()" data-bs-validate novalidate>
+
+        <div class="md:col-6">
+          <label for="firstName" class="form-label">Nombre</label>
+          <input type="text" placeholder="Ingresa tu nombre" id="firstName" name="firstName" class="form-control" formControlName="firstName" [ngClass]="{'is-valid border border-success': signUpForm.get('firstName')?.valid && signUpForm.get('firstName')?.touched, 'is-invalid border border-danger': signUpForm.get('firstName')?.invalid && signUpForm.get('firstName')?.touched}" />
+          @if (signUpForm.get('firstName')?.hasError('required') && signUpForm.get('firstName')?.touched) {
+            <div class="invalid-feedback"><i class="bi bi-exclamation-circle-fill"></i> Este campo es obligatorio.</div>
+          } @else {
+            <div class="valid-feedback"><i class="bi bi-check-circle-fill"></i> Se ve bien.</div>
+          }
+        </div>
+
+        <div class="md:col-6">
+          <label for="lastname" class="form-label">Apellido</label>
+          <input type="text" placeholder="Ingresa tu apellido" id="lastName" name="lastName" class="form-control" formControlName="lastName" [ngClass]="{'is-valid border border-success': signUpForm.get('lastName')?.valid && signUpForm.get('lastName')?.touched, 'is-invalid border border-danger': signUpForm.get('lastName')?.invalid && signUpForm.get('lastName')?.touched}" />
+          @if (signUpForm.get('lastName')?.hasError('required') && signUpForm.get('lastName')?.touched) {
+            <div class="invalid-feedback"><i class="bi bi-exclamation-circle-fill"></i> Este campo es obligatorio.</div>
+          } @else {
+            <div class="valid-feedback"><i class="bi bi-check-circle-fill"></i> Se ve bien.</div>
+          }
+        </div>
+
+        <div class="md:col-8">
+          <label for="address" class="form-label">Dirección de Despacho (opcional)</label>
+          <input type="text" placeholder="Ingresa una dirección de despacho" id="address" name="address" class="form-control" />
+        </div>
+
+        <div class="md:col-4">
+          <label for="birthday" class="form-label">Fecha de Nacimiento</label>
+          <input type="text" placeholder="Ingresa tu fecha de nacimiento" class="form-control" id="birthday" data-bs-toggle="datepicker" autocomplete="off" formControlName="birthday" [ngClass]="{'is-valid border border-success': signUpForm.get('birthday')?.valid && signUpForm.get('birthday')?.touched, 'is-invalid border border-danger': signUpForm.get('birthday')?.invalid && signUpForm.get('birthday')?.touched}">
+          @if (signUpForm.get('birthday')?.hasError('required') && signUpForm.get('birthday')?.touched) {
+            <div class="invalid-feedback"><i class="bi bi-exclamation-circle-fill"></i> Este campo es obligatorio.</div>
+          } @else if (signUpForm.get('birthday')?.hasError('minAge') && signUpForm.get('birthday')?.touched){
+            <div class="invalid-feedback"><i class="bi bi-exclamation-circle-fill"></i> Debes ser mayor de 13 años para suscribirte.</div>
+          } @else if (signUpForm.get('birthday')?.hasError('futureDate') && signUpForm.get('birthday')?.touched) {
+            <div class="invalid-feedback"><i class="bi bi-exclamation-circle-fill"></i> No puedes ingresar una fecha del futuro</div>
+          } @else {
+            <div class="valid-feedback"><i class="bi bi-check-circle-fill"></i> Se ve bien.</div>
+          }
+        </div>
+
+        <div class="md:col-6">
+          <label for="email" class="form-label">Correo Electrónico</label>
+          <input type="email" placeholder="email@example.com" id="email" name="email" class="form-control" formControlName="email" [ngClass]="{'is-valid border border-success': signUpForm.get('email')?.valid && signUpForm.get('email')?.touched, 'is-invalid border border-danger': signUpForm.get('email')?.invalid && signUpForm.get('email')?.touched}" />
+          @if (signUpForm.get('email')?.hasError('required') && signUpForm.get('email')?.touched) {
+            <div class="invalid-feedback"><i class="bi bi-exclamation-circle-fill"></i> Este campo es obligatorio.</div>
+          } @else if (signUpForm.get('email')?.hasError('email') && signUpForm.get('email')?.touched){
+            <div class="invalid-feedback"><i class="bi bi-exclamation-circle-fill"></i> Ingresa un correo válido</div>
+          } @else {
+            <div class="valid-feedback"><i class="bi bi-check-circle-fill"></i> Se ve bien.</div>
+          }
+        </div>
+        <div class="md:col-6">
+          <label for="username" class="form-label">Nombre de Usuario</label>
+          <input type="text" placeholder="Ingresa un nombre de usuario" id="username" name="username" class="form-control" formControlName="username" [ngClass]="{'is-valid border border-success': signUpForm.get('username')?.valid && signUpForm.get('username')?.touched, 'is-invalid border border-danger': signUpForm.get('username')?.invalid && signUpForm.get('username')?.touched}" />
+          @if (signUpForm.get('username')?.hasError('required') && signUpForm.get('username')?.touched) {
+            <div class="invalid-feedback"><i class="bi bi-exclamation-circle-fill"></i> Este campo es obligatorio.</div>
+          } @else {
+            <div class="valid-feedback"><i class="bi bi-check-circle-fill"></i> Se ve bien.</div>
+          }
+        </div>
+
+        <div class="md:col-6">
+          <label for="password" class="form-label">Contraseña</label>
+          <input type="password" placeholder="Ingresa una contraseña" id="password" name="password" class="form-control" formControlName="password" [ngClass]="{'is-valid border border-success': signUpForm.get('password')?.valid && signUpForm.get('password')?.touched, 'is-invalid border border-danger': signUpForm.get('password')?.invalid && signUpForm.get('password')?.touched}" />
+          @if (signUpForm.get('password')?.hasError('required') && signUpForm.get('password')?.touched) {
+            <div class="invalid-feedback"><i class="bi bi-exclamation-circle-fill"></i> Este campo es obligatorio.</div>
+          } @else if (signUpForm.get('password')?.hasError('minLength') && signUpForm.get('password')?.touched) {
+            <div class="invalid-feedback"><i class="bi bi-exclamation-circle-fill"></i> La contraseña debe tener al menos 6 caracteres.</div>
+          } @else if (signUpForm.get('password')?.hasError('maLength') && signUpForm.get('password')?.touched) {
+            <div class="invalid-feedback"><i class="bi bi-exclamation-circle-fill"></i> La contraseña debe tener un máximo de 18 caracteres.</div>
+          } @else if (signUpForm.get('password')?.hasError('pattern') && signUpForm.get('password')?.touched) {
+            <div class="invalid-feedback"><i class="bi bi-exclamation-circle-fill"></i> La contraseña debe tener al menos una mayúscula, una minúscula y un dígito.</div>
+          } @else {
+            <div class="valid-feedback"><i class="bi bi-check-circle-fill"></i> Se ve bien.</div>
+          }
+        </div>
+        <div class="md:col-6">
+          <label for="confirm-password" class="form-label">Confirmar Contraseña</label>
+          <input type="password" placeholder="Repite tu contraseña" id="confirmPassword" name="confirmPassword" class="form-control" formControlName="confirmPassword" [ngClass]="{'is-valid border border-success': signUpForm.get('confirmPassword')?.valid && signUpForm.get('confirmPassword')?.touched, 'is-invalid border border-danger': signUpForm.get('confirmPassword')?.invalid && signUpForm.get('confirmPassword')?.touched}" />
+          @if (signUpForm.get('confirmPassword')?.hasError('required') && signUpForm.get('confirmPassword')?.touched) {
+            <div class="invalid-feedback"><i class="bi bi-exclamation-circle-fill"></i> Este campo es obligatorio.</div>
+          } @else if (signUpForm.get('confirmPassword')?.hasError('passwordNotMatch') && signUpForm.get('confirmPassword')?.touched) {
+            <div class="invalid-feedback"><i class="bi bi-exclamation-circle-fill"></i> Las contraseñas no coinciden.</div>
+          } @else {
+            <div class="valid-feedback"><i class="bi bi-check-circle-fill"></i> Se ve bien.</div>
+          }
+        </div>
+
+        <div class="col-12 gap-5 d-flex flex-column md:flex-row justify-content-center md:justify-content-end align-items-center">
+          <button type="submit" class="cta-button">Enviar</button>
+          <button type="reset" class="primary-button">Limpiar</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</router-outlet>

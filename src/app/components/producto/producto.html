@@ -1,0 +1,63 @@
+<router-outlet>
+  <div id="main-container">
+    <div class="container d-flex justify-content-center md:justify-content-start align-items-center">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a class="breadcrumb-link" routerLink="/tienda">Tienda</a>
+          </li>
+          <li class="breadcrumb-divider"></li>
+          <li class="breadcrumb-item">
+            @if (producto.category === 'juegos-mesa'){
+              <a class="breadcrumb-link" routerLink="/juegos-mesa">Juegos de Mesa</a>
+            }@else if (producto.category === 'juegos-cartas'){
+              <a class="breadcrumb-link" routerLink="/juegos-cartas">Juegos de Cartas</a>
+            }@else if (producto.category === 'juegos-rol'){
+              <a class="breadcrumb-link" routerLink="/juegos-rol">Juegos de Rol</a>
+            }@else{
+              <a class="breadcrumb-link" routerLink="/accesorios">Accesorios</a>
+            }
+          </li>
+          <li class="breadcrumb-divider"></li>
+          <li class="breadcrumb-item">
+            <a class="breadcrumb-link" routerLink="producto/{{producto.guid}}">{{producto.name}}</a>
+          </li>
+        </ol>
+      </nav>
+    </div>
+    <div class="container" id="product-container">
+      <div id="img-container">
+        <img src="img/{{ producto.category }}/{{ producto.image }}" alt="{{ producto.name }}">
+      </div>
+      <div id="info-container">
+        <div class="d-flex justify-content-end align-items-center w-100">
+          @if(producto.stock > 0){
+            <p>Quedan {{ producto.stock }} unidades</p>
+          } @else {
+            <p>Producto sin stock</p>
+          }
+        </div>
+        <div>
+          <p><small>{{ producto.brand }}</small></p>
+          <h5>{{ producto.name }}</h5>
+          <p>{{ producto.description }}</p>
+        </div>
+        <div>
+          @if(producto.discount > 0) {
+            <div class="d-flex justify-ccontent-start align-items-center">
+              <p class="me-4 mb-0" id="old-price">{{ currency_format.format(producto.price) }}</p>
+              <p id="descuento" class="mb-0">-{{ producto.discount }}%</p>
+            </div>
+            <h5>{{ currency_format.format(producto.price - producto.price * producto.discount/100) }}</h5>
+          } @else {
+            <h5>{{ currency_format.format(producto.price) }}</h5>
+          }
+        </div>
+        <div id="buttons-container">
+          <button class="primary-button btn-solid"><i class="bi bi-cart-plus-fill"></i> Agregar al Carrito</button>
+          <button class="cta-button btn-solid">Comprar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</router-outlet>

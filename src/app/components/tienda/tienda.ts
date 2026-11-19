@@ -1,10 +1,11 @@
 import {Component, inject} from '@angular/core';
-import {RouterOutlet} from '@angular/router';
+import {RouterLink, RouterOutlet} from '@angular/router';
 import {getItem} from '../../utils/storage';
 
 @Component({
   imports: [
     RouterOutlet,
+    RouterLink,
   ],
   selector: 'app-tienda',
   styleUrl: './tienda.css',

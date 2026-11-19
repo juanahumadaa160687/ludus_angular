@@ -3,18 +3,19 @@
 
   <div class="container-fluid" id="main-container">
 
+    <div class="container-fluid d-flex justify-content-center md:justify-content-start align-items-center">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item">
+            <a class="breadcrumb-link" routerLink="/tienda">Tienda</a>
+          </li>
+        </ol>
+      </nav>
+    </div>
+
     <div class="container-fluid d-flex flex-column justify-content-center align-items-center md:align-items-start">
       <h1 class="text-center md:text-start">Ludus Arcanus Store</h1>
       <p class="text-center md:text-start">Bienvenido a nuestra tienda en línea, donde encontrarás una amplia variedad de juegos y accesorios para todos los gustos.</p>
-    </div>
-
-    <div class="container-fluid d-flex justify-content-center md:justify-content-end align-items-center">
-      <div class="btn-group" role="group" aria-label="Basic example">
-        <button type="button" class="buttons-group btn-solid" onclick="window.location.href='#'">Juegos de Mesa</button>
-        <button type="button" class="buttons-group btn-solid" onclick="window.location.href='#'">Juegos de Cartas</button>
-        <button type="button" class="buttons-group btn-solid" onclick="window.location.href='#'">Juegos de Rol</button>
-        <button type="button" class="buttons-group btn-solid" onclick="window.location.href='#'">Accesorios</button>
-      </div>
     </div>
 
     <div class="container-fluid d-flex justify-content-center align-items-center m-0" id="carousel-container">
@@ -51,14 +52,14 @@
             <div>
               <h6 class="">{{producto.name}}</h6>
               <p class="card-text" id="description">{{ producto.description }}</p>
-              <p class="card-title text-end"><a href="/producto/{{ producto.guid }}" >Ver más</a></p>
+              <p class="card-title text-end"><a href="/producto/{{ producto.guid }}">Ver más</a></p>
             </div>
             <div class="footer">
               <div>
                 <p class="card-title price">{{currency_format.format(producto.price - producto.price * producto.discount/100)}}</p>
               </div>
               <div class="d-flex justify-content-end">
-                <button class="buy-button"><i class="bi bi-cart"></i> Comprar</button>
+                <a class="buy-button btn-solid" routerLink="#"><i class="bi bi-cart"></i> Comprar</a>
               </div>
             </div>
           </div>
