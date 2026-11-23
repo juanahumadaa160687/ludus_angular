@@ -17,6 +17,14 @@
   .drawer{
     background-color: rgba(20, 20, 20, 0.7);
     backdrop-filter: blur(5px);
+
+    .drawer-title{
+      color: var(--color-accent-a10);
+    }
+
+    .btn-close{
+      background-color: var(--color-accent-a10);
+    }
   }
 
   .menu{

@@ -3,7 +3,6 @@ import {Home} from './components/home/home';
 import {NotFound} from './components/not-found/not-found';
 import {Tienda} from './components/tienda/tienda';
 import {Producto} from './components/producto/producto';
-import {Seccion} from './components/seccion/seccion';
 import {SignIn} from './components/sign-in/sign-in';
 import {SignUp} from './components/sign-up/sign-up';
 import {UserProfile} from './components/user-profile/user-profile';
@@ -31,19 +30,34 @@ export const routes: Routes = [
     title: 'Ludus Arcanus Store'
   },
   {
-    path: 'seccion/:categoria',
-    component: Seccion,
-    title: 'Ludus Arcanus Store'
+    path: 'juegos-mesa',
+    component: Tienda,
+    title: 'Juegos de Mesa'
+  },
+  {
+    path: 'juegos-de-cartas',
+    component: Tienda,
+    title: 'Juegos de Cartas'
+  },
+  {
+    path: 'juegos-de-rol',
+    component: Tienda,
+    title: 'Juegos de Rol'
+  },
+  {
+    path: 'accesorios',
+    component: Tienda,
+    title: 'Accesorios'
   },
   {
     path: 'sign-in',
     component: SignIn,
-    title: 'Ludus Arcanus Store'
+    title: 'Iniciar Sesión'
   },
   {
     path: 'sign-up',
     component: SignUp,
-    title: 'Ludus Arcanus Store'
+    title: 'Registrarse'
   },
   {
     path: 'profile',

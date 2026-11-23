@@ -4,7 +4,7 @@
   gap: 0.5rem;
   justify-items: center;
   align-items: center;
-  padding: 3rem 1rem;
+  padding: 5rem 0;
 
   h1{
     font-size: var(--font-size-title);
@@ -20,16 +20,6 @@
   display: grid;
   justify-items: center;
   align-items: center;
-  padding: 1rem;
-  margin: 1rem 0;
-}
-
-#products-container{
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  justify-items: center;
-  align-items: start;
   padding: 1rem;
   margin: 1rem 0;
 }
@@ -129,17 +119,6 @@
   }
 }
 
-.buttons-group{
-  background-color: transparent;
-  color: var(--color-primary-a10);
-  transition: background-color 0.3s, color 0.3s;
-  border: 1px solid var(--color-primary-a10);
-}
-.buttons-group:hover{
-  background-color: var(--primary-button-hover-background);
-  color: var(--color-dark-a0);
-}
-
 .buy-button{
   color: var(--color-primary-a10);
   background-color: var(--primary-button-background);
@@ -171,6 +150,23 @@ a{
     background-color: transparent;
     color: var(--link-hover-color);
     text-decoration: underline;
+  }
+}
+
+.btn-group{
+  button {
+    background-color: transparent;
+    color: var(--color-primary-a10);
+    border: 1px solid var(--color-primary-a10);
+
+&:hover{
+      background-color: var(--primary-button-hover-background);
+      color: var(--primary-button-hover-color);
+    }
+  }
+  .is-active{
+    background-color: var(--primary-button-hover-background);
+    color: var(--primary-button-hover-color);
   }
 }
 

@@ -1,9 +1,8 @@
 <router-outlet>
 
+  <div class="container-fluid " id="main-container">
 
-  <div class="container-fluid" id="main-container">
-
-    <div class="container-fluid d-flex justify-content-center md:justify-content-start align-items-center">
+    <div class="container-fluid d-flex justify-content-start align-items-center ">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
@@ -13,12 +12,21 @@
       </nav>
     </div>
 
-    <div class="container-fluid d-flex flex-column justify-content-center align-items-center md:align-items-start">
+    <div class="container-fluid d-none lg:d-flex justify-content-end align-items-center mb-3 ">
+      <div class="btn-group btn-group-divider" role="group" aria-label="Solid example">
+        <button type="button" class="btn-solid ">Juegos de Mesa</button>
+        <button type="button" class="btn-solid ">Juegos de Cartas</button>
+        <button type="button" class="btn-solid ">Juegos de Rol</button>
+        <button type="button" class="btn-solid ">Accesorios</button>
+      </div>
+    </div>
+
+    <div class="container-fluid d-flex flex-column justify-content-center align-items-center md:align-items-start ">
       <h1 class="text-center md:text-start">Ludus Arcanus Store</h1>
       <p class="text-center md:text-start">Bienvenido a nuestra tienda en línea, donde encontrarás una amplia variedad de juegos y accesorios para todos los gustos.</p>
     </div>
 
-    <div class="container-fluid d-flex justify-content-center align-items-center m-0" id="carousel-container">
+    <div class="container-fluid d-flex justify-content-center align-items-center m-0 " id="carousel-container">
       <div id="carouselExample" class="carousel carousel-overlay slide carousel-fade" data-bs-autoplay="true">
         <div class="carousel-inner rounded-5">
           <div class="carousel-item active">
@@ -41,25 +49,27 @@
       </div>
     </div>
 
-    <div class="container-fluid" id="products-container">
+    <div class="container-fluid row g-5 lg:g-8 d-flex justify-content-center" id="products-container">
       @for (producto of sale_products; track producto.guid){
-        <div class="card">
-          <img src="img/{{producto.category}}/{{producto.image}}" alt="{{producto.name}}" class="card-img-top">
-          <div class="card-body">
-            <div>
-              <p class="card-text text-end"><small>{{ producto.discount }}% de descuento</small></p>
-            </div>
-            <div>
-              <h6 class="">{{producto.name}}</h6>
-              <p class="card-text" id="description">{{ producto.description }}</p>
-              <p class="card-title text-end"><a href="/producto/{{ producto.guid }}">Ver más</a></p>
-            </div>
-            <div class="footer">
+        <div class="col d-flex justify-content-center">
+          <div class="card">
+            <img src="img/{{producto.category}}/{{producto.image}}" alt="{{producto.name}}" class="card-img-top">
+            <div class="card-body">
               <div>
-                <p class="card-title price">{{currency_format.format(producto.price - producto.price * producto.discount/100)}}</p>
+                <p class="card-text text-end"><small>{{ producto.discount }}% de descuento</small></p>
               </div>
-              <div class="d-flex justify-content-end">
-                <a class="buy-button btn-solid" routerLink="#"><i class="bi bi-cart"></i> Comprar</a>
+              <div>
+                <h6 class="">{{producto.name}}</h6>
+                <p class="card-text" id="description">{{ producto.description }}</p>
+                <p class="card-title text-end"><a href="/producto/{{ producto.guid }}">Ver más</a></p>
+              </div>
+              <div class="footer">
+                <div>
+                  <p class="card-title price">{{currency_format.format(producto.price - producto.price * producto.discount/100)}}</p>
+                </div>
+                <div class="d-flex justify-content-end">
+                  <a class="buy-button btn-solid" routerLink="#"><i class="bi bi-cart-plus"></i> Comprar</a>
+                </div>
               </div>
             </div>
           </div>

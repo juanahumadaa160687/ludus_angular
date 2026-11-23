@@ -1,6 +1,6 @@
 <router-outlet>
   <div id="main-container">
-    <div class="container d-flex justify-content-center md:justify-content-start align-items-center">
+    <div class="container-fluid d-flex justify-content-start align-items-center">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
           <li class="breadcrumb-item">
@@ -26,25 +26,27 @@
       </nav>
     </div>
     <div class="container" id="product-container">
-      <div id="img-container">
+      <div class="" id="img-container">
         <img src="img/{{ producto.category }}/{{ producto.image }}" alt="{{ producto.name }}">
       </div>
-      <div id="info-container">
+      <div class="" id="info-container">
         <div class="d-flex justify-content-end align-items-center w-100">
-          @if(producto.stock > 0){
-            <p>Quedan {{ producto.stock }} unidades</p>
-          } @else {
-            <p>Producto sin stock</p>
+          @if(producto.stock > 10){
+            <p id="stock-normal">Quedan {{ producto.stock }} unidades</p>
+          } @else if (producto.stock < 10 && producto.stock > 5){
+            <p id="stock-bajo">Quedan {{ producto.stock }} unidades</p>
+          }@else {
+            <p id="sin-stock">Producto sin stock</p>
           }
         </div>
-        <div>
+        <div class="d-flex flex-column justify-content-center md:justify-content-start text-center md:text-start">
           <p><small>{{ producto.brand }}</small></p>
           <h5>{{ producto.name }}</h5>
           <p>{{ producto.description }}</p>
         </div>
-        <div>
+        <div class="d-flex flex-column justify-content-center md:justify-content-start text-center md:text-start">
           @if(producto.discount > 0) {
-            <div class="d-flex justify-ccontent-start align-items-center">
+            <div class="d-flex justify-content-center md:justify-content-start align-items-center">
               <p class="me-4 mb-0" id="old-price">{{ currency_format.format(producto.price) }}</p>
               <p id="descuento" class="mb-0">-{{ producto.discount }}%</p>
             </div>
@@ -54,7 +56,7 @@
           }
         </div>
         <div id="buttons-container">
-          <button class="primary-button btn-solid"><i class="bi bi-cart-plus-fill"></i> Agregar al Carrito</button>
+          <button class="primary-button btn-solid"><i class="bi bi-cart-plus"></i> Agregar al Carrito</button>
           <button class="cta-button btn-solid">Comprar</button>
         </div>
       </div>
